@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Support | HZX.pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #FFFDF7;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 14px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #FFFDF7;
+            border-left: 3px solid #1a1a1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #FFD43B;
+            border: 3px solid #1a1a1a;
+        }
+
+        html {
+            scrollbar-width: thin;
+            scrollbar-color: #FFD43B #FFFDF7;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            line-height: 1.15;
+        }
+
+        .neo-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            border: 3px solid #1a1a1a;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.12s;
+            background: #fff;
+            color: #1a1a1a;
+        }
+
+        .neo-btn:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 6px 6px 0px #1a1a1a;
+        }
+
+        .neo-btn-primary {
+            background: #FFD43B;
+        }
+
+        .neo-btn-dark {
+            background: #1a1a1a;
+            color: #fff;
+        }
+
+        .neo-btn-dark:hover {
+            background: #FFD43B;
+            color: #1a1a1a;
+        }
+
+        .topbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: #FFFDF7;
+            border-bottom: 3px solid #1a1a1a;
+        }
+
+        .topbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+            max-width: 1100px;
+        }
+
+        .back-link {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 800;
+            font-size: 1.3rem;
+            background: #1a1a1a;
+            color: #FFD43B;
+            padding: 8px 16px;
+            border: 2px solid #1a1a1a;
+        }
+
+        .page-hero {
+            padding: 150px 0 40px;
+            text-align: center;
+        }
+
+        .page-hero .tag {
+            display: inline-block;
+            padding: 6px 16px;
+            border: 2px solid #1a1a1a;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: #FF6B6B;
+            color: #fff;
+            margin-bottom: 18px;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(2.2rem, 6vw, 3.5rem);
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            margin-bottom: 14px;
+        }
+
+        .page-hero p {
+            font-weight: 500;
+            color: #4a4a4a;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        /* QUICK CHANNELS */
+        .channels {
+            padding: 40px 0 20px;
+        }
+
+        .channel-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .channel-card {
+            background: #fff;
+            border: 3px solid #1a1a1a;
+            box-shadow: 6px 6px 0 #1a1a1a;
+            padding: 26px 22px;
+            text-align: center;
+            transition: all 0.15s;
+        }
+
+        .channel-card:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 9px 9px 0 #1a1a1a;
+        }
+
+        .channel-card:nth-child(1) {
+            background: #B8E994;
+        }
+
+        .channel-card:nth-child(2) {
+            background: #FFEAA7;
+        }
+
+        .channel-card:nth-child(3) {
+            background: #DFE6E9;
+        }
+
+        .channel-card .ic {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .channel-card h3 {
+            font-size: 1.05rem;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .channel-card p {
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: #333;
+            margin-bottom: 14px;
+        }
+
+        /* FAQ */
+        .faq-section {
+            padding: 70px 0 100px;
+        }
+
+        .faq-section .section-header {
+            text-align: center;
+            margin-bottom: 44px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 6px;
+            background: #FFD43B;
+            border: 2px solid #1a1a1a;
+            margin-top: 4px;
+        }
+
+        .faq-list {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: #fff;
+            border: 3px solid #1a1a1a;
+            box-shadow: 4px 4px 0 #1a1a1a;
+            margin-bottom: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .faq-item:hover {
+            box-shadow: 6px 6px 0 #1a1a1a;
+            transform: translate(-2px, -2px);
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        .faq-question .chevron {
+            font-size: 1.4rem;
+            font-weight: 800;
+            transition: transform 0.3s;
+            line-height: 1;
+        }
+
+        .faq-item.open .faq-question .chevron {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease;
+            padding: 0 24px;
+            font-weight: 500;
+            line-height: 1.7;
+            border-top: 2px solid transparent;
+        }
+
+        .faq-item.open .faq-answer {
+            max-height: 400px;
+            padding: 20px 24px;
+            border-top-color: #1a1a1a;
+        }
+
+        .footer {
+            background: #1a1a1a;
+            color: #ccc;
+            padding: 30px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            border-top: 4px solid #FFD43B;
+        }
+
+        .footer a {
+            color: #FFD43B;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 700px) {
+            .channel-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="topbar">
+        <div class="container">
+            <a href="index.html" class="back-link">← Kembali</a>
+            <span class="logo">HZX.pro</span>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <span class="tag">Support</span>
+            <h1>Butuh Bantuan?</h1>
+            <p>Pilih salah satu cara di bawah, atau langsung cek jawaban cepat di FAQ.</p>
+        </div>
+    </section>
+
+    <section class="channels">
+        <div class="container channel-grid">
+            <div class="channel-card">
+                <div class="ic">💬</div>
+                <h3>WhatsApp</h3>
+                <p>Respon paling cepet, biasanya dalam hitungan jam.</p>
+                <a href="https://wa.me/6282110757763" target="_blank" rel="noopener" class="neo-btn neo-btn-dark"
+                    style="padding:10px 20px;font-size:0.8rem;">Chat Sekarang</a>
+            </div>
+            <div class="channel-card">
+                <div class="ic">📧</div>
+                <h3>Email</h3>
+                <p>Buat pertanyaan detail atau kirim brief lengkap.</p>
+                <a href="mailto:fathahazz31@gmail.com" class="neo-btn" style="padding:10px 20px;font-size:0.8rem;">Kirim
+                    Email</a>
+            </div>
+            <div class="channel-card">
+                <div class="ic">📝</div>
+                <h3>Form Kontak</h3>
+                <p>Isi form, gua bales dalam 1×24 jam.</p>
+                <a href="index.html#contact" class="neo-btn neo-btn-primary"
+                    style="padding:10px 20px;font-size:0.8rem;">Isi Form</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">FAQ</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">Berapa lama respon kalau chat?<span class="chevron">↓</span></div>
+                    <div class="faq-answer">Biasanya dibales dalam beberapa jam di jam kerja (Sen–Jum 09:00–18:00). Di
+                        luar itu, paling lambat 1×24 jam.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Gimana kalau project udah jalan tapi butuh bantuan teknis?<span
+                            class="chevron">↓</span></div>
+                    <div class="faq-answer">Langsung chat WhatsApp aja pake channel yang sama waktu awal diskusi. Klien
+                        aktif dapet prioritas respon lebih cepat.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Bisa request revisi di luar paket?<span class="chevron">↓</span></div>
+                    <div class="faq-answer">Bisa, tapi di luar kuota revisi paket bakal ada biaya tambahan. Gua kasih
+                        tau estimasinya dulu sebelum lanjut, jadi gak ada biaya kejutan.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Ada garansi kalau ada bug setelah launch?<span class="chevron">↓</span>
+                    </div>
+                    <div class="faq-answer">Ada masa garansi bug-fix gratis setelah project rilis. Durasinya disesuaikan
+                        sama paket yang kamu ambil.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">© 2026 HZX.pro — Kembali ke <a href="index.html">Halaman Utama</a></div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.querySelector('.faq-question').addEventListener('click', () => {
+                item.classList.toggle('open');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

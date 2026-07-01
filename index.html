@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HZXPro — Jasa Digital Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&family=Space+Grotesk:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- ===== SVG ICON SPRITE (reusable, natural line icons) ===== -->
+    <svg style="display:none">
+        <symbol id="ic-sparkle" viewBox="0 0 24 24">
+            <path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+        </symbol>
+        <symbol id="ic-bolt" viewBox="0 0 24 24">
+            <path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"
+                stroke-linecap="round" fill="none" />
+        </symbol>
+        <symbol id="ic-rocket" viewBox="0 0 24 24">
+            <path d="M12 2c3 1.5 5 5 5 9 0 2-1 4-2 5l-3 3-3-3c-1-1-2-3-2-5 0-4 2-7.5 5-9Z" stroke="currentColor"
+                stroke-width="1.8" stroke-linejoin="round" fill="none" />
+            <circle cx="12" cy="10" r="1.8" stroke="currentColor" stroke-width="1.6" fill="none" />
+            <path d="M8 16c-2 0.5-3 2-3 5 3 0 4.5-1 5-3M16 16c2 0.5 3 2 3 5-3 0-4.5-1-5-3" stroke="currentColor"
+                stroke-width="1.6" stroke-linecap="round" fill="none" />
+        </symbol>
+        <symbol id="ic-palette" viewBox="0 0 24 24">
+            <path
+                d="M12 3a9 9 0 1 0 0 18c1.2 0 2-1 2-2 0-.6-.3-1-.6-1.4-.3-.4-.6-.8-.6-1.3 0-1 .8-1.8 1.8-1.8H17a4 4 0 0 0 4-4c0-4.4-4-7.5-9-7.5Z"
+                stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" fill="none" />
+            <circle cx="7.5" cy="10.5" r="1.1" fill="currentColor" />
+            <circle cx="9.5" cy="7" r="1.1" fill="currentColor" />
+            <circle cx="14.5" cy="7" r="1.1" fill="currentColor" />
+        </symbol>
+        <symbol id="ic-plus" viewBox="0 0 24 24">
+            <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </symbol>
+        <symbol id="ic-chat" viewBox="0 0 24 24">
+            <path d="M21 12a8 8 0 0 1-8 8H5.5L3 22l1-3.8A8 8 0 1 1 21 12Z" stroke="currentColor" stroke-width="1.8"
+                stroke-linejoin="round" fill="none" />
+        </symbol>
+        <symbol id="ic-arrow-up" viewBox="0 0 24 24">
+            <path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                stroke-linejoin="round" fill="none" />
+        </symbol>
+        <symbol id="ic-mail" viewBox="0 0 24 24">
+            <rect x="3" y="5" width="18" height="14" rx="1.5" stroke="currentColor" stroke-width="1.7" fill="none" />
+            <path d="m4 6.5 8 6 8-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                stroke-linejoin="round" fill="none" />
+        </symbol>
+        <symbol id="ic-phone" viewBox="0 0 24 24">
+            <path
+                d="M6.5 3.5h3l1.5 4-2 1.5a11 11 0 0 0 5.5 5.5l1.5-2 4 1.5v3c0 1-.9 1.8-1.9 1.6-6-1.2-10.9-6-12.1-12.1-.2-1 .6-1.9 1.6-1.9Z"
+                stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" fill="none" />
+        </symbol>
+        <symbol id="ic-at" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.7" fill="none" />
+            <path d="M16 12v1.5a2.5 2.5 0 0 0 5 0V12a9 9 0 1 0-4 7.5" stroke="currentColor" stroke-width="1.7"
+                stroke-linecap="round" fill="none" />
+        </symbol>
+        <symbol id="ic-pin" viewBox="0 0 24 24">
+            <path d="M12 22s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12Z" stroke="currentColor" stroke-width="1.7"
+                stroke-linejoin="round" fill="none" />
+            <circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.6" fill="none" />
+        </symbol>
+        <symbol id="ic-cap" viewBox="0 0 24 24">
+            <path d="m12 4 9 4.5-9 4.5-9-4.5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"
+                fill="none" />
+            <path d="M7 11v4.5c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5V11" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" fill="none" />
+            <path d="M21 8.5V14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+        </symbol>
+        <symbol id="ic-briefcase" viewBox="0 0 24 24">
+            <rect x="3" y="7.5" width="18" height="12" rx="1.5" stroke="currentColor" stroke-width="1.7" fill="none" />
+            <path d="M8 7.5V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1.5M3 12h18" stroke="currentColor" stroke-width="1.7"
+                stroke-linecap="round" fill="none" />
+        </symbol>
+        <symbol id="ic-instagram" viewBox="0 0 24 24">
+            <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.7" fill="none" />
+            <circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.7" fill="none" />
+            <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" />
+        </symbol>
+        <symbol id="ic-linkedin" viewBox="0 0 24 24">
+            <rect x="3" y="3" width="18" height="18" rx="2.5" stroke="currentColor" stroke-width="1.7" fill="none" />
+            <circle cx="8" cy="8.2" r="1.2" fill="currentColor" />
+            <path d="M8 11.5v6M12.5 17.5v-3.7c0-1.3.9-2.3 2.2-2.3s2.1 1 2.1 2.3v3.7" stroke="currentColor"
+                stroke-width="1.7" stroke-linecap="round" fill="none" />
+            <path d="M8 11.5h0" stroke="currentColor" stroke-width="1.7" />
+        </symbol>
+        <symbol id="ic-youtube" viewBox="0 0 24 24">
+            <rect x="2.5" y="6" width="19" height="12" rx="3" stroke="currentColor" stroke-width="1.7" fill="none" />
+            <path d="M10.5 9.5v5l4.3-2.5Z" fill="currentColor" />
+        </symbol>
+        <symbol id="ic-tiktok" viewBox="0 0 24 24">
+            <path d="M14 3v10.8a2.7 2.7 0 1 1-2.5-2.7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                fill="none" />
+            <path d="M14 3c.4 2.4 2.1 4 4.6 4.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                fill="none" />
+        </symbol>
+        <symbol id="ic-window" viewBox="0 0 24 24">
+            <rect x="3" y="4" width="18" height="16" rx="1.5" stroke="currentColor" stroke-width="1.7" fill="none" />
+            <path d="M3 8.5h18" stroke="currentColor" stroke-width="1.7" />
+            <circle cx="6" cy="6.2" r=".6" fill="currentColor" />
+            <circle cx="8" cy="6.2" r=".6" fill="currentColor" />
+        </symbol>
+        <symbol id="ic-mobile" viewBox="0 0 24 24">
+            <rect x="7" y="2.5" width="10" height="19" rx="2" stroke="currentColor" stroke-width="1.7" fill="none" />
+            <path d="M11 18.3h2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+        </symbol>
+        <symbol id="ic-target" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.7" fill="none" />
+            <circle cx="12" cy="12" r="4.7" stroke="currentColor" stroke-width="1.7" fill="none" />
+            <circle cx="12" cy="12" r="1.2" fill="currentColor" />
+        </symbol>
+        <symbol id="ic-camera" viewBox="0 0 24 24">
+            <path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1Z"
+                stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" fill="none" />
+            <circle cx="12" cy="13" r="3.3" stroke="currentColor" stroke-width="1.7" fill="none" />
+        </symbol>
+        <symbol id="ic-pencil" viewBox="0 0 24 24">
+            <path d="m4 20 1-4.5L15.5 5 19 8.5 8.5 19 4 20Z" stroke="currentColor" stroke-width="1.7"
+                stroke-linejoin="round" fill="none" />
+            <path d="M13.5 6.7 17.3 10.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+        </symbol>
+        <symbol id="ic-star" viewBox="0 0 24 24">
+            <path d="m12 3 2.6 5.8 6.2.6-4.7 4.2 1.4 6.2L12 16.9 6.5 19.8l1.4-6.2L3.2 9.4l6.2-.6Z" stroke="currentColor"
+                stroke-width="1.6" stroke-linejoin="round" fill="none" />
+        </symbol>
+        <symbol id="ic-user" viewBox="0 0 24 24">
+            <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.7" fill="none" />
+            <path d="M4.5 20c1.2-4 4-6 7.5-6s6.3 2 7.5 6" stroke="currentColor" stroke-width="1.7"
+                stroke-linecap="round" fill="none" />
+        </symbol>
+        <symbol id="ic-check" viewBox="0 0 24 24">
+            <path d="m4 12.5 5.5 5.5L20 6.5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                stroke-linejoin="round" fill="none" />
+        </symbol>
+        <symbol id="ic-minus" viewBox="0 0 24 24">
+            <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </symbol>
+        <symbol id="ic-chevron" viewBox="0 0 24 24">
+            <path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                stroke-linejoin="round" fill="none" />
+        </symbol>
+        <symbol id="ic-chevron-left" viewBox="0 0 24 24">
+            <path d="m15 6-6 6 6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                stroke-linejoin="round" fill="none" />
+        </symbol>
+        <symbol id="ic-chevron-right" viewBox="0 0 24 24">
+            <path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                stroke-linejoin="round" fill="none" />
+        </symbol>
+        <symbol id="ic-clock" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.7" fill="none" />
+            <path d="M12 7.5V12l3 2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" fill="none" />
+        </symbol>
+        <symbol id="ic-coffee" viewBox="0 0 24 24">
+            <path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8Z" stroke="currentColor" stroke-width="1.7"
+                stroke-linejoin="round" fill="none" />
+            <path d="M17 9.5h1.5a2.5 2.5 0 0 1 0 5H17" stroke="currentColor" stroke-width="1.7" fill="none" />
+            <path d="M8 3.5c-.6.8-.6 1.4 0 2.2M12 3.5c-.6.8-.6 1.4 0 2.2" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" />
+        </symbol>
+        <symbol id="ic-git" viewBox="0 0 24 24">
+            <circle cx="6" cy="6" r="2.3" stroke="currentColor" stroke-width="1.6" fill="none" />
+            <circle cx="6" cy="18" r="2.3" stroke="currentColor" stroke-width="1.6" fill="none" />
+            <circle cx="18" cy="6" r="2.3" stroke="currentColor" stroke-width="1.6" fill="none" />
+            <path d="M6 8.3v7.4M8.3 6H16a2 2 0 0 1 2 2v0" stroke="currentColor" stroke-width="1.6"
+                stroke-linecap="round" fill="none" />
+        </symbol>
+        <symbol id="ic-cloud" viewBox="0 0 24 24">
+            <path d="M7 18h10.5a3.5 3.5 0 0 0 0-7 5.5 5.5 0 0 0-10.6-1.7A4 4 0 0 0 7 18Z" stroke="currentColor"
+                stroke-width="1.7" stroke-linejoin="round" fill="none" />
+        </symbol>
+        <symbol id="ic-db" viewBox="0 0 24 24">
+            <ellipse cx="12" cy="6" rx="7" ry="2.6" stroke="currentColor" stroke-width="1.7" fill="none" />
+            <path d="M5 6v6c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6M5 12v6c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6v-6"
+                stroke="currentColor" stroke-width="1.7" fill="none" />
+        </symbol>
+    </svg>
+
+    <!-- ===== CUSTOM CURSOR ===== -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-outline" id="cursorOutline"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">HZX.pro</a>
+            <div class="nav-links" id="navLinks">
+                <a href="#services">Layanan</a>
+                <a href="#process">Proses</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#testimonials">Testimoni</a>
+                <a href="#pricing">Harga</a>
+                <a href="#contact" class="nav-cta">Hubungi</a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home">
+        <div class="container hero-grid">
+            <div>
+                <div class="hero-badge"><svg class="ic" width="14" height="14">
+                        <use href="#ic-sparkle" /></svg> OPEN FOR SERVICE</div>
+                <h1>
+                    SAYA <span class="highlight">FATHAHAZZ</span><br />
+                    BANTU SOLUSI DIGITAL KAMU
+                </h1>
+                <p>
+                    Dari ide sampe hasil jadi — gua bantu kamu wujudin masalah digital kamu
+                    dengan cara yang beda. Cepet, beres, nggak pake ribet.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="neo-btn neo-btn-primary"><svg class="ic" width="16" height="16">
+                            <use href="#ic-mail" /></svg> Konsultasi Gratis</a>
+                    <a href="#portfolio" class="neo-btn">Lihat Project →</a>
+                </div>
+                <div class="hero-stats">
+                    <div><span class="num">50+</span><span class="lbl">Project</span></div>
+                    <div><span class="num">30+</span><span class="lbl">Klien</span></div>
+                    <div><span class="num">4.8</span><span class="lbl">Rating</span></div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="avatar-box">
+                    <div class="avatar-frame">
+                        <img src="asset/hazz1.png" alt="Avatar" class="avatar" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MARQUEE ===== -->
+    <div class="marquee-strip">
+        <div class="marquee-track">
+            <span>Available For Work</span>
+            <span>Web Development</span>
+            <span>App Development</span>
+            <span>UI/UX Design</span>
+            <span>Let's Build Something</span>
+            <span>Available For Work</span>
+            <span>Web Development</span>
+            <span>App Development</span>
+            <span>UI/UX Design</span>
+            <span>Let's Build Something</span>
+        </div>
+    </div>
+
+    <!-- ===== LAYANAN ===== -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Yang Gua Kasih</h2>
+                <span class="neo-tag" style="background:#FF6B6B;">Layanan</span>
+                <p style="font-weight:500;font-size:1.1rem;margin-top:12px;max-width:500px;">Nggak pake basa-basi — ini
+                    yang bisa gua bantu buat kamu.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-icon"><svg class="ic" width="26" height="26">
+                            <use href="#ic-bolt" /></svg></div>
+                    <h3>Web Development</h3>
+                    <p>Landing page, company profile, sampe web app custom (dashboard, sistem manajemen, POS). Dari
+                        HTML/CSS statis sampe full-stack pake React/Node.js.</p>
+                    <div class="service-num">01</div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon"><svg class="ic" width="26" height="26">
+                            <use href="#ic-rocket" /></svg></div>
+                    <h3>App Development</h3>
+                    <p>Aplikasi mobile/desktop custom sesuai kebutuhan bisnis — dari sistem POS, inventory management,
+                        sampe aplikasi internal.</p>
+                    <div class="service-num">02</div>
+                </div>
+                <div class="service-card reveal">
+                    <div class="service-icon"><svg class="ic" width="26" height="26">
+                            <use href="#ic-palette" /></svg></div>
+                    <h3>UI/UX Design</h3>
+                    <p>Desain interface yang bukan cuma cakep, tapi gampang dipake. Dari wireframe di Figma sampe desain
+                        system yang konsisten.</p>
+                    <div class="service-num">03</div>
+                </div>
+                <a href="https://wa.me/6282110757763?text=Halo%2C%20gua%20mau%20nanya%20soal%20layanan%20di%20luar%20yang%20tercantum%20di%20web."
+                    target="_blank" rel="noopener" class="service-card service-card-custom reveal">
+                    <div class="service-icon service-icon-custom"><svg class="ic" width="26" height="26">
+                            <use href="#ic-plus" /></svg></div>
+                    <h3>Butuh Layanan Lain?</h3>
+                    <p>Kebutuhan kamu di luar daftar di atas? Santai, chat langsung aja — kita diskusiin bareng, gratis.
+                    </p>
+                    <div class="service-num-cta">
+                        <svg class="ic" width="18" height="18">
+                            <use href="#ic-chat" /></svg>
+                        Chat WhatsApp
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROSES KERJA ===== -->
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Proses Gua</h2>
+                <span class="neo-tag" style="background:#1a1a1a; color:#FFD43B;">Cara Kerja</span>
+                <p style="font-weight:500;font-size:1.05rem;margin-top:12px;max-width:500px;">4 langkah simpel dari ide
+                    sampe jadi.</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step reveal">
+                    <div class="step-num">01</div>
+                    <h3>Brief & Diskusi</h3>
+                    <p>Ngobrol bareng soal kebutuhan, target, dan budget kamu. Gratis, gak pake ribet.</p>
+                    <span class="process-arrow">→</span>
+                </div>
+                <div class="process-step reveal">
+                    <div class="step-num">02</div>
+                    <h3>Desain</h3>
+                    <p>Gua bikin konsep visual sesuai brief, kamu review dan kasih feedback.</p>
+                    <span class="process-arrow">→</span>
+                </div>
+                <div class="process-step reveal">
+                    <div class="step-num">03</div>
+                    <h3>Development</h3>
+                    <p>Masuk tahap build. Progress selalu diupdate biar kamu gak nunggu tanpa kabar.</p>
+                    <span class="process-arrow">→</span>
+                </div>
+                <div class="process-step reveal">
+                    <div class="step-num">04</div>
+                    <h3>Launch</h3>
+                    <p>Final testing, revisi terakhir, terus rilis. Support tetep jalan setelahnya.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TECH STACK ===== -->
+    <section class="stack" id="stack">
+        <div class="container">
+            <div class="section-header reveal" style="margin-bottom:32px;">
+                <h2 class="section-title">Yang Gua Pake</h2>
+                <span class="neo-tag" style="background:#FF6B6B;">Tools</span>
+            </div>
+            <div class="stack-badges reveal">
+                <span class="stack-badge"><svg class="ic" width="17" height="17">
+                        <use href="#ic-window" /></svg> React</span>
+                <span class="stack-badge"><svg class="ic" width="17" height="17">
+                        <use href="#ic-git" /></svg> Node.js</span>
+                <span class="stack-badge"><svg class="ic" width="17" height="17">
+                        <use href="#ic-palette" /></svg> Figma</span>
+                <span class="stack-badge"><svg class="ic" width="17" height="17">
+                        <use href="#ic-db" /></svg> MySQL</span>
+                <span class="stack-badge"><svg class="ic" width="17" height="17">
+                        <use href="#ic-mobile" /></svg> Flutter</span>
+                <span class="stack-badge"><svg class="ic" width="17" height="17">
+                        <use href="#ic-bolt" /></svg> Next.js</span>
+                <span class="stack-badge"><svg class="ic" width="17" height="17">
+                        <use href="#ic-git" /></svg> Git</span>
+                <span class="stack-badge"><svg class="ic" width="17" height="17">
+                        <use href="#ic-cloud" /></svg> Vercel</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PORTFOLIO ===== -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Hasil Nyata</h2>
+                <span class="neo-tag" style="background:#FF6B6B;">Portfolio</span>
+                <p style="font-weight:500;font-size:1.05rem;margin-top:12px;color:#ccc;max-width:500px;">Bukan janji —
+                    ini bukti.</p>
+            </div>
+            <div class="portfolio-grid" id="portfolioGrid">
+                <div class="portfolio-item reveal">
+                    <svg class="ic port-icon" width="52" height="52">
+                        <use href="#ic-window" /></svg>
+                    <div class="overlay">
+                        <h4>Project 1</h4>
+                        <p>Kategori — 2026</p>
+                        <div class="overlay-btns"><a href="#" class="demo-btn" target="_blank" rel="noopener">Demo
+                                →</a><a href="case-study.html" class="detail-btn">Detail</a></div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal">
+                    <svg class="ic port-icon" width="52" height="52">
+                        <use href="#ic-mobile" /></svg>
+                    <div class="overlay">
+                        <h4>Project 2</h4>
+                        <p>Kategori — 2026</p>
+                        <div class="overlay-btns"><a href="#" class="demo-btn" target="_blank" rel="noopener">Demo
+                                →</a><a href="case-study.html" class="detail-btn">Detail</a></div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal">
+                    <svg class="ic port-icon" width="52" height="52">
+                        <use href="#ic-target" /></svg>
+                    <div class="overlay">
+                        <h4>Project 3</h4>
+                        <p>Kategori — 2026</p>
+                        <div class="overlay-btns"><a href="#" class="demo-btn" target="_blank" rel="noopener">Demo
+                                →</a><a href="case-study.html" class="detail-btn">Detail</a></div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal portfolio-extra">
+                    <svg class="ic port-icon" width="52" height="52">
+                        <use href="#ic-camera" /></svg>
+                    <div class="overlay">
+                        <h4>Project 4</h4>
+                        <p>Kategori — 2026</p>
+                        <div class="overlay-btns"><a href="#" class="demo-btn" target="_blank" rel="noopener">Demo
+                                →</a><a href="case-study.html" class="detail-btn">Detail</a></div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal portfolio-extra">
+                    <svg class="ic port-icon" width="52" height="52">
+                        <use href="#ic-pencil" /></svg>
+                    <div class="overlay">
+                        <h4>Project 5</h4>
+                        <p>Kategori — 2026</p>
+                        <div class="overlay-btns"><a href="#" class="demo-btn" target="_blank" rel="noopener">Demo
+                                →</a><a href="case-study.html" class="detail-btn">Detail</a></div>
+                    </div>
+                </div>
+                <div class="portfolio-item reveal portfolio-extra">
+                    <svg class="ic port-icon" width="52" height="52">
+                        <use href="#ic-rocket" /></svg>
+                    <div class="overlay">
+                        <h4>Project 6</h4>
+                        <p>Kategori — 2026</p>
+                        <div class="overlay-btns"><a href="#" class="demo-btn" target="_blank" rel="noopener">Demo
+                                →</a><a href="case-study.html" class="detail-btn">Detail</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-more-wrap">
+                <button class="neo-btn neo-btn-primary" id="portfolioMoreBtn">
+                    Tampilkan Lebih Banyak
+                    <svg class="ic" width="16" height="16" id="portfolioMoreIcon">
+                        <use href="#ic-chevron" /></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Kata Mereka</h2>
+                <span class="neo-tag" style="background:#FF6B6B;">Testimoni</span>
+            </div>
+
+            <div class="testi-carousel reveal" id="testiCarousel">
+                <button class="testi-arrow testi-arrow-left" id="testiPrev" aria-label="Sebelumnya">
+                    <svg class="ic" width="20" height="20">
+                        <use href="#ic-chevron-left" /></svg>
+                </button>
+                <div class="testi-viewport" id="testiViewport">
+                    <div class="testi-track" id="testiTrack"></div>
+                </div>
+                <button class="testi-arrow testi-arrow-right" id="testiNext" aria-label="Selanjutnya">
+                    <svg class="ic" width="20" height="20">
+                        <use href="#ic-chevron-right" /></svg>
+                </button>
+            </div>
+            <div class="testi-dots" id="testiDots"></div>
+        </div>
+    </section>
+
+    <!-- ===== TENTANG ===== -->
+    <section class="about" id="about">
+        <div class="container about-grid">
+            <div class="about-image reveal">
+                <div class="avatar-big">
+                    <div class="avatar-big-frame">
+                        <img src="asset/hazz1.png" alt="Foto" class="avatar-big-img" />
+                    </div>
+                </div>
+            </div>
+            <div class="reveal">
+                <span class="neo-tag" style="background:#1a1a1a; color:#FFD43B;">Tentang</span>
+                <h2>HALO, GUA FATHAHAZ</h2>
+                <p>Gua seorang Full Stack Developer udah 2 tahun bantuin klien dari startup sampe enterprise di [bidang
+                    kamu].</p>
+                <p>Prinsip gue: <strong>hasil berkualitas, komunikasi transparan, deadline tepat.</strong> Nggak pake
+                    drama, yang penting beres dan kamu puas.</p>
+                <div class="about-details">
+                    <div><svg class="ic" width="16" height="16">
+                            <use href="#ic-pin" /></svg> Indramayu</div>
+                    <div><svg class="ic" width="16" height="16">
+                            <use href="#ic-cap" /></svg> D3 Teknik Informatika</div>
+                    <div><svg class="ic" width="16" height="16">
+                            <use href="#ic-briefcase" /></svg> 2 Tahun</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== HARGA ===== -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Pilih Paket</h2>
+                <span class="neo-tag" style="background:#FF6B6B;">Harga</span>
+                <p style="font-weight:500;font-size:1.05rem;margin-top:12px;">Sesuain sama kebutuhan dan budget kamu.
+                </p>
+            </div>
+            <div class="pricing-grid">
+                <div class="price-card reveal">
+                    <h3>Basic</h3>
+                    <div class="price-wrap">
+                        <span class="currency">Rp</span>
+                        <span class="price">XXX</span>
+                        <span class="period">/ project</span>
+                    </div>
+                    <ul>
+                        <li><svg class="ic" width="15" height="15">
+                                <use href="#ic-check" /></svg> [Fitur 1]</li>
+                        <li><svg class="ic" width="15" height="15">
+                                <use href="#ic-check" /></svg> [Fitur 2]</li>
+                        <li><svg class="ic" width="15" height="15">
+                                <use href="#ic-check" /></svg> [Fitur 3]</li>
+                        <li class="unavail"><svg class="ic" width="15" height="15">
+                                <use href="#ic-minus" /></svg> [Fitur 4]</li>
+                        <li class="unavail"><svg class="ic" width="15" height="15">
+                                <use href="#ic-minus" /></svg> [Fitur 5]</li>
+                    </ul>
+                    <a href="#contact" class="neo-btn neo-btn-dark">Pilih Basic</a>
+                </div>
+                <div class="price-card featured reveal">
+                    <span class="popular-badge"><svg class="ic" width="12" height="12">
+                            <use href="#ic-star" /></svg> TERLARIS</span>
+                    <h3>Pro</h3>
+                    <div class="price-wrap">
+                        <span class="currency">Rp</span>
+                        <span class="price">XXX</span>
+                        <span class="period">/ project</span>
+                    </div>
+                    <ul>
+                        <li><svg class="ic" width="15" height="15">
+                                <use href="#ic-check" /></svg> [Fitur 1]</li>
+                        <li><svg class="ic" width="15" height="15">
+                                <use href="#ic-check" /></svg> [Fitur 2]</li>
+                        <li><svg class="ic" width="15" height="15">
+                                <use href="#ic-check" /></svg> [Fitur 3]</li>
+                        <li><svg class="ic" width="15" height="15">
+                                <use href="#ic-check" /></svg> [Fitur 4]</li>
+                        <li class="unavail"><svg class="ic" width="15" height="15">
+                                <use href="#ic-minus" /></svg> [Fitur 5]</li>
+                    </ul>
+                    <a href="#contact" class="neo-btn neo-btn-primary">Pilih Pro</a>
+                </div>
+                <div class="price-card reveal">
+                    <h3>Premium</h3>
+                    <div class="price-wrap">
+                        <span class="currency">Rp</span>
+                        <span class="price">XXX</span>
+                        <span class="period">/ project</span>
+                    </div>
+                    <ul>
+                        <li><svg class="ic" width="15" height="15">
+                                <use href="#ic-check" /></svg> [Fitur 1]</li>
+                        <li><svg class="ic" width="15" height="15">
+                                <use href="#ic-check" /></svg> [Fitur 2]</li>
+                        <li><svg class="ic" width="15" height="15">
+                                <use href="#ic-check" /></svg> [Fitur 3]</li>
+                        <li><svg class="ic" width="15" height="15">
+                                <use href="#ic-check" /></svg> [Fitur 4]</li>
+                        <li><svg class="ic" width="15" height="15">
+                                <use href="#ic-check" /></svg> [Fitur 5]</li>
+                    </ul>
+                    <a href="#contact" class="neo-btn neo-btn-dark">Pilih Premium</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Yang Sering Nanya</h2>
+                <span class="neo-tag" style="background:#FFD43B; color:#1a1a1a;">FAQ</span>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        Berapa lama prosesnya?
+                        <span class="chevron"><svg class="ic" width="18" height="18">
+                                <use href="#ic-chevron" /></svg></span>
+                    </div>
+                    <div class="faq-answer">
+                        Tergantung kompleksitas project. Rata-rata 3–7 hari kerja. Pasti kita diskusi timeline dulu biar
+                        cocok.
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        Sistem bayarnya gimana?
+                        <span class="chevron"><svg class="ic" width="18" height="18">
+                                <use href="#ic-chevron" /></svg></span>
+                    </div>
+                    <div class="faq-answer">
+                        50% DP dulu, 50% setelah kamu puas. Bisa transfer bank atau e-wallet.
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        Ada revisi gratis?
+                        <span class="chevron"><svg class="ic" width="18" height="18">
+                                <use href="#ic-chevron" /></svg></span>
+                    </div>
+                    <div class="faq-answer">
+                        Pasti! Tiap paket include 2–3x revisi. Kalau lebih, diskusi dulu aja.
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        Belum punya brief, gimana?
+                        <span class="chevron"><svg class="ic" width="18" height="18">
+                                <use href="#ic-chevron" /></svg></span>
+                    </div>
+                    <div class="faq-answer">
+                        Santuy, gua bisa bantu bikin brief bareng lewat chat — gratis.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-title">Gaslah!</h2>
+                <span class="neo-tag" style="background:#1a1a1a; color:#fff;">Kontak</span>
+                <p style="font-weight:500;font-size:1.05rem;margin-top:12px;">Ada project atau cuma mau ngobrol? Isi
+                    form atau chat langsung aja.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <h3>Ngobrol Yuk!</h3>
+                    <p>Diskusi awal <strong>gratis</strong>, kok. Isi form atau langsung chat aja ke kontak di bawah.
+                    </p>
+                    <div class="info-item"><span class="ic-wrap"><svg class="ic" width="18" height="18">
+                                <use href="#ic-mail" /></svg></span> fathahazz31@gmail.com</div>
+                    <div class="info-item"><span class="ic-wrap"><svg class="ic" width="18" height="18">
+                                <use href="#ic-phone" /></svg></span> +62 821-2075-7763</div>
+                    <div class="info-item"><span class="ic-wrap"><svg class="ic" width="18" height="18">
+                                <use href="#ic-at" /></svg></span> @fathahazz</div>
+                    <div class="info-item"><span class="ic-wrap"><svg class="ic" width="18" height="18">
+                                <use href="#ic-pin" /></svg></span> Indramayu, Indonesia</div>
+                </div>
+                <form class="contact-form reveal" id="contactForm">
+                    <input type="text" id="nama" placeholder="Nama *" required />
+                    <input type="email" id="email" placeholder="Email *" required />
+                    <input type="text" id="wa" placeholder="No. WA (opsional)" />
+
+                    <select id="layanan">
+                        <option value="">— Pilih Layanan —</option>
+                        <option>Web Development</option>
+                        <option>App Development</option>
+                        <option>UI/UX Design</option>
+                        <option>Lainnya</option>
+                    </select>
+
+                    <textarea id="pesan" placeholder="Ceritain project kamu..." required></textarea>
+
+                    <button type="submit" class="neo-btn neo-btn-primary">
+                        Kirim
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4 style="font-size:1.3rem;">HZX.pro</h4>
+                    <p>Jasa Full Stack Development. Cepet, beres, dan nggak pake drama.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><svg class="ic" width="18" height="18">
+                                <use href="#ic-instagram" /></svg></a>
+                        <a href="#" aria-label="LinkedIn"><svg class="ic" width="18" height="18">
+                                <use href="#ic-linkedin" /></svg></a>
+                        <a href="#" aria-label="YouTube"><svg class="ic" width="18" height="18">
+                                <use href="#ic-youtube" /></svg></a>
+                        <a href="#" aria-label="TikTok"><svg class="ic" width="18" height="18">
+                                <use href="#ic-tiktok" /></svg></a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Menu</h4>
+                    <ul>
+                        <li><a href="#services">Layanan</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#pricing">Harga</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Kontak</h4>
+                    <ul>
+                        <li><a href="mailto:fathahazz31@gmail.com">Email</a></li>
+                        <li><a href="https://wa.me/6282110757763" target="_blank" rel="noopener">WhatsApp</a></li>
+                        <li><a href="https://instagram.com/fathahazz" target="_blank" rel="noopener">Instagram</a></li>
+                        <li><a href="https://linkedin.com/in/fathahazz" target="_blank" rel="noopener">LinkedIn</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Jam</h4>
+                    <ul>
+                        <li><svg class="ic" width="14" height="14" style="vertical-align:-2px;margin-right:4px;">
+                                <use href="#ic-clock" /></svg>Sen–Jum 09:00–18:00</li>
+                        <li><svg class="ic" width="14" height="14" style="vertical-align:-2px;margin-right:4px;">
+                                <use href="#ic-clock" /></svg>Sab 09:00–14:00</li>
+                        <li style="color:#FFD43B;font-weight:700;"><svg class="ic" width="14" height="14"
+                                style="vertical-align:-2px;margin-right:4px;">
+                                <use href="#ic-coffee" /></svg>Chat aja!</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 HZX.pro</span>
+                <span style="display:flex; gap:8px; align-items:center;">
+                    <a href="privacy.html">Privacy</a>
+                    <span style="color:#555;">·</span>
+                    <a href="#">Sitemap</a>
+                    <span style="color:#555;">·</span>
+                    <a href="support.html">Support</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== WHATSAPP FLOAT + TOOLTIP ===== -->
+    <div class="wa-wrap">
+        <div class="wa-tooltip" id="waTooltip">
+            Ayo ngobrol dengan gua
+            <button class="wa-tooltip-close" id="waTooltipClose" aria-label="Tutup">
+                <svg class="ic" width="12" height="12">
+                    <use href="#ic-plus" /></svg>
+            </button>
+        </div>
+        <a href="https://wa.me/6282110757763" class="wa-float" target="_blank" rel="noopener"
+            aria-label="Chat WhatsApp">
+            <svg class="ic" width="26" height="26">
+                <use href="#ic-chat" /></svg>
+        </a>
+    </div>
+
+    <!-- ===== BACK TO TOP ===== -->
+    <button class="back-to-top" id="backToTop" aria-label="Kembali ke atas">
+        <svg class="ic" width="20" height="20">
+            <use href="#ic-arrow-up" /></svg>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
