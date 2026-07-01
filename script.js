@@ -36,7 +36,7 @@ window.addEventListener('scroll', () => {
 });
 
 // NAVBAR ACTIVE STATE (scroll-spy)
-const navAnchorLinks = document.querySelectorAll('.nav-links a[href^="#"]:not(.nav-cta)');
+const navAnchorLinks = document.querySelectorAll('.nav-links a[href^="#"]');
 const spySections = Array.from(navAnchorLinks)
     .map(link => document.querySelector(link.getAttribute('href')))
     .filter(Boolean);
