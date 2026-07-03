@@ -63,13 +63,22 @@ const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
 
 function openMenu() {
+    navLinks.classList.remove('closing');
     navLinks.classList.add('open');
     hamburger.classList.add('open');
 }
 
 function closeMenu() {
+    if (!navLinks.classList.contains('open')) return;
     navLinks.classList.remove('open');
     hamburger.classList.remove('open');
+    navLinks.classList.add('closing');
+    navLinks.addEventListener('animationend', function handler() {
+        navLinks.classList.remove('closing');
+        navLinks.removeEventListener('animationend', handler);
+    }, {
+        once: true
+    });
 }
 
 hamburger.addEventListener('click', (e) => {
@@ -213,7 +222,10 @@ if (portfolioGrid && portfolioMoreBtn) {
             } else {
                 portfolioMoreBtn.childNodes[0].nodeValue = 'Tampilkan Lebih Banyak ';
                 // scroll balik ke atas section portfolio biar rapi
-                document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                document.getElementById('portfolio').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             }
         });
     }
@@ -222,16 +234,60 @@ if (portfolioGrid && portfolioMoreBtn) {
 // ===== TESTIMONIALS — CAROUSEL RESPONSIVE =====
 // 1 kartu / slide di HP, 2 kartu / slide di tablet, 3 kartu / slide di desktop.
 // Fungsinya SAMA persis di semua ukuran layar: autoplay + tombol panah + dots + swipe.
-const testimonialsData = [
-    { initial: 'A', name: 'Andi Pratama', role: 'Founder StartupX', quote: 'Hasilnya gila sih. Cepet, rapih, dan komunikasinya enak. Udah pasti bakal repeat order.' },
-    { initial: 'S', name: 'Sari Dewi', role: 'Owner Dewi Studio', quote: 'Gue suka style-nya. Beda dari yang lain. Nggak cuma dikerjain, tapi dikasih saran yang bikin hasil makin gila.' },
-    { initial: 'R', name: 'Rizky H.', role: 'CEO Kreasi Digital', quote: 'Udah 3x kerja sama. Konsisten bagus, harga worth it, dan selalu on time. Highly recommended!' },
-    { initial: 'D', name: 'Dina Amalia', role: 'Marketing Lead Bloom Co', quote: 'Komunikasinya enak banget, gak pernah ngilang. Progress selalu diupdate rutin tanpa gua tanya duluan.' },
-    { initial: 'F', name: 'Farhan Ilyas', role: 'Founder Ruang Kopi', quote: 'Desainnya keluar dari template biasa. Klien-klien gua sendiri nanyain siapa yang bikin web-nya.' },
-    { initial: 'M', name: 'Maya Puspita', role: 'COO Jejak Nusantara', quote: 'Deadline mepet pun tetep dikejar sampe beres. Total gak nyesel pindah dari vendor lama.' },
-    { initial: 'B', name: 'Bagus Setiawan', role: 'Owner Warkop Digital', quote: 'Harga masuk akal buat hasil sekelas ini. Worth every rupiah, bakal balik lagi buat project berikutnya.' },
-    { initial: 'N', name: 'Nadia Rahma', role: 'Brand Manager Klarra', quote: 'Awalnya ragu karena freelancer, ternyata lebih rapi dari agency yang pernah gua pakai sebelumnya.' },
-    { initial: 'T', name: 'Teguh Wibowo', role: 'Founder Loka Kreatif', quote: 'Revisi dilayani tanpa drama, cepet ngerti maunya gua kayak apa. Bakal rekomendasiin ke temen-temen.' }
+const testimonialsData = [{
+        initial: 'A',
+        name: 'Andi Pratama',
+        role: 'Founder StartupX',
+        quote: 'Hasilnya gila sih. Cepet, rapih, dan komunikasinya enak. Udah pasti bakal repeat order.'
+    },
+    {
+        initial: 'S',
+        name: 'Sari Dewi',
+        role: 'Owner Dewi Studio',
+        quote: 'Gue suka style-nya. Beda dari yang lain. Nggak cuma dikerjain, tapi dikasih saran yang bikin hasil makin gila.'
+    },
+    {
+        initial: 'R',
+        name: 'Rizky H.',
+        role: 'CEO Kreasi Digital',
+        quote: 'Udah 3x kerja sama. Konsisten bagus, harga worth it, dan selalu on time. Highly recommended!'
+    },
+    {
+        initial: 'D',
+        name: 'Dina Amalia',
+        role: 'Marketing Lead Bloom Co',
+        quote: 'Komunikasinya enak banget, gak pernah ngilang. Progress selalu diupdate rutin tanpa gua tanya duluan.'
+    },
+    {
+        initial: 'F',
+        name: 'Farhan Ilyas',
+        role: 'Founder Ruang Kopi',
+        quote: 'Desainnya keluar dari template biasa. Klien-klien gua sendiri nanyain siapa yang bikin web-nya.'
+    },
+    {
+        initial: 'M',
+        name: 'Maya Puspita',
+        role: 'COO Jejak Nusantara',
+        quote: 'Deadline mepet pun tetep dikejar sampe beres. Total gak nyesel pindah dari vendor lama.'
+    },
+    {
+        initial: 'B',
+        name: 'Bagus Setiawan',
+        role: 'Owner Warkop Digital',
+        quote: 'Harga masuk akal buat hasil sekelas ini. Worth every rupiah, bakal balik lagi buat project berikutnya.'
+    },
+    {
+        initial: 'N',
+        name: 'Nadia Rahma',
+        role: 'Brand Manager Klarra',
+        quote: 'Awalnya ragu karena freelancer, ternyata lebih rapi dari agency yang pernah gua pakai sebelumnya.'
+    },
+    {
+        initial: 'T',
+        name: 'Teguh Wibowo',
+        role: 'Founder Loka Kreatif',
+        quote: 'Revisi dilayani tanpa drama, cepet ngerti maunya gua kayak apa. Bakal rekomendasiin ke temen-temen.'
+    }
 ];
 
 const testiCarousel = document.getElementById('testiCarousel');
@@ -242,7 +298,9 @@ const testiNextBtn = document.getElementById('testiNext');
 const testiDotsWrap = document.getElementById('testiDots');
 
 if (testiTrack && testiViewport && testiCarousel) {
-    const starsMarkup = Array.from({ length: 5 })
+    const starsMarkup = Array.from({
+            length: 5
+        })
         .map(() => '<svg class="ic" width="16" height="16"><use href="#ic-star" /></svg>')
         .join('');
 
@@ -372,7 +430,9 @@ if (testiTrack && testiViewport && testiCarousel) {
     testiViewport.addEventListener('touchstart', (e) => {
         touchStartX = e.touches[0].clientX;
         stopAutoplay();
-    }, { passive: true });
+    }, {
+        passive: true
+    });
     testiViewport.addEventListener('touchend', (e) => {
         const touchEndX = e.changedTouches[0].clientX;
         const diff = touchStartX - touchEndX;
@@ -381,7 +441,9 @@ if (testiTrack && testiViewport && testiCarousel) {
         } else {
             startAutoplay();
         }
-    }, { passive: true });
+    }, {
+        passive: true
+    });
 
     // render ulang saat resize melewati breakpoint jumlah kartu per slide
     let resizeTimer = null;
@@ -400,7 +462,7 @@ if (testiTrack && testiViewport && testiCarousel) {
 }
 
 // kirim ke wa bagian hubungi
-document.getElementById('contactForm').addEventListener('submit', function(e) {
+document.getElementById('contactForm').addEventListener('submit', function (e) {
     e.preventDefault();
 
     const nama = document.getElementById('nama').value;
